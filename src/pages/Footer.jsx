@@ -4,13 +4,14 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import React from 'react';
 import logo from '../Fantasyfestival_logo.jpg';
+import '../styling/footer.css'
 
 function Footer() {
   return (
-    <div>
-      <table className="table">
+    <div className='footer'>
+      <table className="footerTable">
         <tr>
-          <th className="tableRow">
+          <th className="footerTableRow">
             <img src={logo} alt="FantasyFestival logo" className="logo" width="80px" />
             <br />
             <Button size="small">
@@ -24,14 +25,14 @@ function Footer() {
             </Button>
             <br />
           </th>
-          <th className="tableRow">
+          <th className="footerTableRow">
             <Typography variant="h5" gutterBottom>Fantasyfestival</Typography>
             <Button size="small">Åbningstider</Button>
             <br />
             <Button size="small">Se program</Button>
             <br />
           </th>
-          <th className="tableRow">
+          <th className="footerTableRow">
             <Typography variant="h5" gutterBottom>Praktisk info</Typography>
             <Button size="small">Overnatning</Button>
             <br />
@@ -40,7 +41,7 @@ function Footer() {
             <Button size="small">Transport</Button>
             <br />
           </th>
-          <th className="tableRow">
+          <th className="footerTableRow">
             <Typography variant="h5" gutterBottom>Genveje</Typography>
             <Button size="small">EAN- og CVR-numre</Button>
             <br />

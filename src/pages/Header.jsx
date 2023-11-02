@@ -1,27 +1,32 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
+import { Link } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import '../styling/header.css';
+import logo from '../logo_no_title.jpg';
 
 export default function Header() {
   return (
-    <div className="header">
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <Toolbar variant="dense">
-            <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" color="inherit" component="div">
-              Photos
-            </Typography>
-          </Toolbar>
-        </AppBar>
-      </Box>
-    </div>
 
+    <div className="header">
+      <nav>
+        <div className="firstRow">
+          <Typography variant="h5" color="white"><a href="/nyheder">Nyheder</a></Typography>
+          <Typography variant="h5" color="white"><a href="/">Galleri</a></Typography>
+          <Typography variant="h5" color="white"><a href="/program">Program</a></Typography>
+          <Typography variant="h5" color="white"><a href="/">Billetter</a></Typography>
+        </div>
+        <div className="logo">
+          <Link to="/">
+            <img src={logo} alt="" width={150} height={150} className='roundedLogo'/>
+          </Link>
+        </div>
+        <div className="lastRow">
+          <Typography variant="h5" color="white"><a href="/">Nyheder</a></Typography>
+          <Typography variant="h5" color="white"><a href="/">Galleri</a></Typography>
+          <Typography variant="h5" color="white"><a href="/">Program</a></Typography>
+          <Typography variant="h5" color="white"><a href="/">Billetter</a></Typography>
+        </div>
+      </nav>
+    </div>
   );
 }

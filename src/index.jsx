@@ -7,13 +7,13 @@ import Home from './pages/Home';
 import Program from './pages/Program';
 import News from './pages/News';
 import NoPage from './pages/NoPage';
-import Header from './pages/Header';
+import Header1 from './pages/Header';
 import Footer from './pages/Footer';
 
 export default function App() {
   return (
     <BrowserRouter>
-      <Header />
+      <Header1 />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />

@@ -1,0 +1,59 @@
+nav {
+    height: 100px;
+    width: 100%;
+    align-items: end;
+    display: flex;
+    background-color: black;
+    padding-bottom: 10px;
+}
+
+.header {
+    width: 100%;
+    margin: auto;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: lightblue; 
+    text-decoration:none; 
+    cursor:pointer;  
+}
+
+.firstRow {
+    padding-left: 20px;
+    width: 30%;
+    display: flex;
+}
+
+.firstRow > h5 {
+    padding: 10px;
+    display: inline-block;
+}
+
+.lastRow {
+    padding-right: 20px;
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.lastRow > h5 {
+    padding: 10px;
+    text-align: right;
+    display: inline-block;
+}
+
+.logo {
+    width: 40%;
+    text-align: center;
+    position: relative;
+    top: 50%;
+}
+
+.roundedLogo {
+    border-radius: 100px;
+}
