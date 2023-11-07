@@ -1,0 +1,16 @@
+.item {
+    padding: 20px;
+    background-color: lightcoral;
+    border-radius: 10px;
+    text-align: left;
+    margin: 10px;
+}
+
+.formField {
+    padding: 20px;
+    background-color: rgb(214, 194, 194);
+    border-radius: 10px;
+    text-align: left;
+    margin: 10px;
+}
+

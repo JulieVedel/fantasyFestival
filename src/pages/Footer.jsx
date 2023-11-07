@@ -4,11 +4,11 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import React from 'react';
 import logo from '../Fantasyfestival_logo.jpg';
-import '../styling/footer.css'
+import '../styling/footer.css';
 
 function Footer() {
   return (
-    <div className='footer'>
+    <div className="footer">
       <table className="footerTable">
         <tr>
           <th className="footerTableRow">

@@ -17,7 +17,7 @@ export default function Header() {
         </div>
         <div className="logo">
           <Link to="/">
-            <img src={logo} alt="" width={150} height={150} className='roundedLogo'/>
+            <img src={logo} alt="" width={150} height={150} className="roundedLogo" />
           </Link>
         </div>
         <div className="lastRow">

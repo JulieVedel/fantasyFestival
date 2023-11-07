@@ -24,7 +24,7 @@ code {
 }
 
 .content {
-  max-width: 70%;
+  max-width: 60%;
   background-color: aliceblue;
   margin: auto;
   background: rgba(204, 204, 204, 0.7);
@@ -32,6 +32,7 @@ code {
   margin-top: 4%;
   margin-bottom: 4%;
   min-height: 600px;
+  padding: 10px;
 }
 
 

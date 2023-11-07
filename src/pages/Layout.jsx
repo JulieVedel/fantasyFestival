@@ -1,6 +1,5 @@
 import { Outlet } from 'react-router-dom';
 import React from 'react';
-import Background from '../Background.jpg';
 
 function Layout() {
   return (
