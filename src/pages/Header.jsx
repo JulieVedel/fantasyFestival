@@ -21,10 +21,10 @@ export default function Header() {
           </Link>
         </div>
         <div className="lastRow">
-          <Typography variant="h5" color="white"><a href="/">Nyheder</a></Typography>
-          <Typography variant="h5" color="white"><a href="/">Galleri</a></Typography>
-          <Typography variant="h5" color="white"><a href="/">Program</a></Typography>
-          <Typography variant="h5" color="white"><a href="/">Billetter</a></Typography>
+          <Typography variant="h5" color="white"><a href="/">Kunstnerhjørnet</a></Typography>
+          <Typography variant="h5" color="white"><a href="/">Om os</a></Typography>
+          <Typography variant="h5" color="white"><a href="/">Praktisk info</a></Typography>
+          <Typography variant="h5" color="white"><a href="/">Min liste</a></Typography>
         </div>
       </nav>
     </div>
