@@ -1,101 +1,89 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import FilterSelect from './FilterSelect';
 
 function FilterForm({ filters, setFilters }) {
-  const list = {
-    kategori: [
-      { value: 'Alle kategorier', label: 'Alle kategorier' },
-      { value: 'Fantasyfilm og TV-serier', label: 'Fantasyfilm og TV-serier' },
-      { value: 'Bedst til børn', label: 'Bedst til børn' },
-    ],
-    lokation: [
-      { value: 'Alle kategorier', label: 'Alle lokationer' },
-      { value: 'Dragehulen', label: 'Dragehulen' },
-      { value: 'Mørkekammeret', label: 'Mørkekammeret' },
-    ],
-    dato: [
-      { value: 'Alle kategorier', label: 'Alle dage' },
-      { value: 'tirs. 7. nov. 2023', label: 'tirs. 7. nov. 2023' },
-      { value: 'ons. 8. nov. 2023', label: 'ons. 8. nov. 2023' },
-    ],
-    tidspunkt: [
-      { value: 'Alle kategorier', label: 'Alle tidspunkter' },
-      { value: 'Formiddag', label: 'Formiddag' },
-      { value: 'Eftermiddag', label: 'Eftermiddag' },
-    ],
-    tilmelding: [
-      { value: 'Alle kategorier', label: 'Alle' },
-      { value: true, label: 'Kræver tilmelding' },
-      { value: false, label: 'Kræver ikke tilmelding' },
-    ],
-  };
+  const [listProgram, setListProgram] = useState({
+    category: ['Alle kategorier'],
+    location: ['Alle lokationer'],
+    date: ['Alle dage'],
+    times: ['Alle tidspunkter'],
+    registration: ['Alle aktiviteter'],
+  });
 
-  const setCategory = (category) => {
+  useEffect(() => {
+    fetch('http://localhost:8000/filter')
+      .then((res) => res.json())
+      .then((data) => {
+        setListProgram(data.list);
+      });
+  }, []);
+
+  const setCategory = (categoryFilter) => {
     setFilters((prevState) => ({
       ...prevState,
-      Kategori: category,
+      category: categoryFilter,
     }));
   };
 
-  const setLocation = (location) => {
+  const setLocation = (locationFilter) => {
     setFilters((prevState) => ({
       ...prevState,
-      Lokation: location,
+      program_location: locationFilter,
     }));
   };
 
-  const setDate = (date) => {
+  const setDate = (dateFilter) => {
     setFilters((prevState) => ({
       ...prevState,
-      Dato: date,
+      program_date: dateFilter,
     }));
   };
 
-  const setTime = (time) => {
+  const setTime = (timeFilter) => {
     setFilters((prevState) => ({
       ...prevState,
-      Tidspunkt: time,
+      times: timeFilter,
     }));
   };
 
-  const setRegister = (register) => {
+  const setRegister = (registerFilter) => {
     setFilters((prevState) => ({
       ...prevState,
-      Tilmelding: register,
+      registration: registerFilter,
     }));
   };
 
   return (
-    <div>
+    <div className="filters">
       <FilterSelect
         label="Kategori"
-        value={filters.Kategori}
+        value={filters.category}
         setValue={setCategory}
-        list={list.kategori}
+        list={listProgram.category}
       />
       <FilterSelect
         label="Lokation"
-        value={filters.Lokation}
+        value={filters.program_location}
         setValue={setLocation}
-        list={list.lokation}
+        list={listProgram.location}
       />
       <FilterSelect
         label="Dato"
-        value={filters.Dato}
+        value={filters.program_date}
         setValue={setDate}
-        list={list.dato}
+        list={listProgram.date}
       />
       <FilterSelect
         label="Tidspunkt"
-        value={filters.Tidspunkt}
+        value={filters.times}
         setValue={setTime}
-        list={list.tidspunkt}
+        list={listProgram.times}
       />
       <FilterSelect
         label="Tilmelding"
-        value={filters.Tilmelding}
+        value={filters.registration}
         setValue={setRegister}
-        list={list.tilmelding}
+        list={listProgram.registration}
       />
     </div>
   );

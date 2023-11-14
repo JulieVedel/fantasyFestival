@@ -1,23 +1,32 @@
-.footerTable {
+.footer {
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
     padding: 30px;
     margin-top: 30px;
-
+    display: flex;
   }
   
   .footerTableRow {
     text-align: left;
     width: 25%;
     vertical-align: top;
+
   }
   
   .icon {
     margin: 5px;
   }
 
-  .footer {
+  .footerBackground {
     background-color: aliceblue;
 
+  }
+
+  .logoFooter {
+    width: 100%;
+  }
+
+  .logoFooter img {
+    width: 80px;
   }

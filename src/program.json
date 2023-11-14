@@ -1,8 +1,8 @@
 [
     {
-        "id": "Papirsdrager-1",
+        "program_id": "Papirsdrager-1",
         "title": "Papirdrager / Paper Kites workshop",
-        "dato": "tirs. 7. nov. 2023",
+        "dato": "2024-09-14",
         "startTid": "16:00",
         "slutTid": "18:00",
         "tidspunkt": ["Eftermiddag"],
@@ -15,9 +15,9 @@
         "tilmelding": true
     },
     {
-        "id": "Papirsdrager-2",
+        "program_id": "Papirsdrager-2",
         "title": "Papirdrager / Paper Kites workshop",
-        "dato": "ons. 8. nov. 2023",
+        "dato": "2024-09-15",
         "startTid": "10:00",
         "slutTid": "16:00",
         "tidspunkt": ["Formiddag", "Eftermiddag"],
@@ -30,9 +30,9 @@
         "tilmelding": false
     },
     {
-        "id": "Papirsdrager-3",
+        "program_id": "Papirsdrager-3",
         "title": "Papirdrager / Paper Kites workshop",
-        "dato": "ons. 8. nov. 2023",
+        "dato": "2024-09-14",
         "startTid": "9:00",
         "slutTid": "10:00",
         "tidspunkt": ["Formiddag"],

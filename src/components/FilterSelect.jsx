@@ -1,5 +1,5 @@
 import Select from '@mui/material/Select';
-import React from 'react';
+import React, { useEffect } from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
@@ -24,9 +24,10 @@ function FilterSelect({
       >
         {list.map((listValue) => (
           <MenuItem
-            value={listValue.value}
+            key={listValue}
+            value={listValue}
           >
-            {listValue.label}
+            {listValue.toString()}
           </MenuItem>
         ))}
       </Select>

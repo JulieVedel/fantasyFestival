@@ -8,48 +8,49 @@ import '../styling/footer.css';
 
 function Footer() {
   return (
-    <div className="footer">
-      <table className="footerTable">
-        <tr>
-          <th className="footerTableRow">
-            <img src={logo} alt="FantasyFestival logo" className="logo" width="80px" />
-            <br />
-            <Button size="small">
-              <PhoneEnabledIcon color="primary" className="icon" />
-              76 16 20 00
-            </Button>
-            <br />
-            <Button size="small">
-              <MailOutlineIcon color="primary" className="icon" />
-              fantasyfestival@esbjerg.dk
-            </Button>
-            <br />
-          </th>
-          <th className="footerTableRow">
-            <Typography variant="h5" gutterBottom>Fantasyfestival</Typography>
-            <Button size="small">Åbningstider</Button>
-            <br />
-            <Button size="small">Se program</Button>
-            <br />
-          </th>
-          <th className="footerTableRow">
-            <Typography variant="h5" gutterBottom>Praktisk info</Typography>
-            <Button size="small">Overnatning</Button>
-            <br />
-            <Button size="small">Mad og drikke</Button>
-            <br />
-            <Button size="small">Transport</Button>
-            <br />
-          </th>
-          <th className="footerTableRow">
-            <Typography variant="h5" gutterBottom>Genveje</Typography>
-            <Button size="small">EAN- og CVR-numre</Button>
-            <br />
-            <Button size="small">Tilgængelighedserklæring</Button>
-            <br />
-          </th>
-        </tr>
-      </table>
+    <div className="footerBackground">
+      <div className="footer">
+
+        <div className="footerTableRow">
+          <div className='logoFooter'>
+            <img src={logo} alt="FantasyFestival logo" className="logoFooter" />
+          </div>
+          <Button size="small">
+            <PhoneEnabledIcon color="primary" className="icon" />
+            76 16 20 00
+          </Button>
+
+          <Button size="small">
+            <MailOutlineIcon color="primary" className="icon" />
+            fantasyfestival@esbjerg.dk
+          </Button>
+          <br />
+        </div>
+        <div className="footerTableRow">
+          <Typography variant="h5" gutterBottom>Fantasyfestival</Typography>
+          <Button size="small">Åbningstider</Button>
+          <br />
+          <Button size="small">Se program</Button>
+          <br />
+        </div>
+        <div className="footerTableRow">
+          <Typography variant="h5" gutterBottom>Praktisk info</Typography>
+          <Button size="small">Overnatning</Button>
+          <br />
+          <Button size="small">Mad og drikke</Button>
+          <br />
+          <Button size="small">Transport</Button>
+          <br />
+        </div>
+        <div className="footerTableRow">
+          <Typography variant="h5" gutterBottom>Genveje</Typography>
+          <Button size="small">EAN- og CVR-numre</Button>
+          <br />
+          <Button size="small">Tilgængelighedserklæring</Button>
+          <br />
+        </div>
+
+      </div>
     </div>
   );
 }

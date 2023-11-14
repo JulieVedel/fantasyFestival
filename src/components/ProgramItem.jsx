@@ -19,15 +19,22 @@ function ProgramItem({ item }) {
     setOpen(false);
   };
 
-  function checkPrice() {
-    if (item.pris !== 0) {
-      return <Typography variant="h6" className="price">{`${item.pris} kr`}</Typography>;
+  function checkSpeaker(speaker) {
+    if (speaker !== null) {
+      return <Typography variant="h6" className="speaker">{`Foredragsholder: ${item.speaker}`}</Typography>;
+    }
+    return null;
+  }
+
+  function checkRegistration(reg) {
+    if (reg === "Kræver tilmelding") {
+      return <Typography variant="h6" className="registration" color="darkred">{`${reg}`}</Typography>;
     }
     return null;
   }
 
   function setLinks() {
-    if (item.tilmelding) {
+    if (item.registration === "Kræver tilmelding") {
       return (
         <Button variant="contained" onClick={() => { window.open('https://www.google.com/'); }}>
           Tilmeld/køb
@@ -42,9 +49,10 @@ function ProgramItem({ item }) {
   }
 
   return (
-    <div className="item">
+    <div key={item.program_id} className="item">
       <div className="info">
         <Dialog
+          disableScrollLock
           open={open}
           onClose={handleClose}
           aria-labelledby="dialog-read-more"
@@ -56,8 +64,8 @@ function ProgramItem({ item }) {
           <DialogContent>
             <DialogContentText id="dialog-description">
               <div>
-                <Typography variant="subtitle2" className="info">{`${item.lokation} - ${item.dato} kl. ${item.startTid}-${item.slutTid}`}</Typography>
-                <Typography variant="body2">{item.beskrivelse}</Typography>
+                <Typography variant="subtitle2" className="info">{`${item.program_location} - ${item.program_date} kl. ${item.time_start}-${item.time_end}`}</Typography>
+                <Typography variant="body2">{item.description}</Typography>
               </div>
             </DialogContentText>
           </DialogContent>
@@ -67,10 +75,11 @@ function ProgramItem({ item }) {
           </DialogActions>
         </Dialog>
         <Typography variant="h4" className="title">{item.title}</Typography>
-        <Typography variant="h5" className="info">{`${item.lokation} - ${item.dato} kl. ${item.startTid}-${item.slutTid}`}</Typography>
-        {checkPrice()}
-        <Typography variant="body1" className="target">{item.kategori}</Typography>
-        <Typography variant="body1" className="description">{item.kortBeskrivelse}</Typography>
+        <Typography variant="h5" className="info">{`${item.program_location} - ${item.program_date} kl. ${item.time_start}-${item.time_end}`}</Typography>
+        {checkSpeaker(item.speaker)}
+        {checkRegistration(item.registration)}
+        <Typography variant="body1" className="target">{item.category}</Typography>
+        <Typography variant="body1" className="description">{item.short_description}</Typography>
       </div>
       <div className="buttonfield">
         <Button variant="contained" onClick={handleClickOpen}>
