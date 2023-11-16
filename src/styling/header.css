@@ -12,17 +12,6 @@ nav {
     margin: auto;
 }
 
-a {
-    color: white;
-    text-decoration: none;
-}
-
-a:hover {
-    color: lightblue; 
-    text-decoration:none; 
-    cursor:pointer;  
-}
-
 .firstRow {
     padding-left: 20px;
     width: 40%;
@@ -56,4 +45,39 @@ a:hover {
 
 .roundedLogo {
     border-radius: 100px;
+}
+
+ul {
+    color: white;
+    background-color: lightslategrey;
+}
+
+li:hover {
+    color: lightblue; 
+    text-decoration:none; 
+    cursor:pointer;  
+}
+
+.menuButton {
+    align-items: end;
+    display: flex;
+}
+
+.menuButton button {
+    padding: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.menuButton span {
+    margin: 0px;
+    color: white;
+}
+
+.menuButton:hover span {
+    color: lightblue; 
+}
+
+.menuButton:hover h5{
+    color: lightblue; 
 }

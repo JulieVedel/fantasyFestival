@@ -27,16 +27,16 @@ function ProgramItem({ item }) {
   }
 
   function checkRegistration(reg) {
-    if (reg === "Kræver tilmelding") {
+    if (reg === 'Kræver tilmelding') {
       return <Typography variant="h6" className="registration" color="darkred">{`${reg}`}</Typography>;
     }
     return null;
   }
 
   function setLinks() {
-    if (item.registration === "Kræver tilmelding") {
+    if (item.registration === 'Kræver tilmelding') {
       return (
-        <Button variant="contained" onClick={() => { window.open('https://www.google.com/'); }}>
+        <Button variant="contained" onClick={() => { window.open('https://www.ticketmaster.se/artist/fantasyfestival-biljetter/1233494'); }}>
           Tilmeld/køb
         </Button>
       );
@@ -44,9 +44,9 @@ function ProgramItem({ item }) {
     return null;
   }
 
-  function addToList() {
+  const addToList = () => {
     console.log('added to my list');
-  }
+  };
 
   return (
     <div key={item.program_id} className="item">

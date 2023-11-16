@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
 import '../styling/header.css';
 import logo from '../logo_no_title.jpg';
+import DropdownMenu from '../components/DropdownMenu';
+import HeaderLink from '../components/HeaderLink';
 
 export default function Header() {
   return (
@@ -10,10 +12,30 @@ export default function Header() {
     <div className="header">
       <nav>
         <div className="firstRow">
-          <Typography variant="h5" color="white"><a href="/nyheder">Nyheder</a></Typography>
-          <Typography variant="h5" color="white"><a href="/">Galleri</a></Typography>
-          <Typography variant="h5" color="white"><a href="/program">Program</a></Typography>
-          <Typography variant="h5" color="white"><a href="/">Billetter</a></Typography>
+          <HeaderLink title="Fantasy Quest" link="/fantasy-quest" />
+          <DropdownMenu
+            title="Fællesskaber"
+            routes={
+            [
+              { title: 'The Fantasy Fellowship', link: '/the-fantasy-fellowship' },
+              { title: 'Sociale medier', link: '/sociale-medier' },
+              { title: 'Galleri: Fantasyfestival 2022', link: '/billeder-fra-fantasyfestival-22' },
+              { title: 'Galleri: Fantasyfestival 2021', link: '/billeder-fra-fantasyfestival-21' },
+            ]
+              }
+          />
+          <DropdownMenu
+            title="Program"
+            routes={
+            [
+              { title: 'Se program', link: '/program' },
+              { title: 'Billetter', link: '/billetter' },
+              { title: 'Kort over festivalen', link: '/kort-over-festivalen' },
+              { title: 'Dansk Fantasy Pris', link: '/dansk-fantasy-pris' },
+              { title: 'Guests of Honour', link: '/guests-of-honour' },
+            ]
+              }
+          />
         </div>
         <div className="logo">
           <Link to="/">
@@ -21,10 +43,35 @@ export default function Header() {
           </Link>
         </div>
         <div className="lastRow">
-          <Typography variant="h5" color="white"><a href="/">Kunstnerhjørnet</a></Typography>
-          <Typography variant="h5" color="white"><a href="/">Om os</a></Typography>
-          <Typography variant="h5" color="white"><a href="/">Praktisk info</a></Typography>
-          <Typography variant="h5" color="white"><a href="/">Min liste</a></Typography>
+          <DropdownMenu
+            title="Praktisk info"
+            routes={
+            [
+              { title: 'Om Fantasyfestivalen', link: '/om-fantasyfestivalen' },
+              { title: 'Hvordan begyndte fantasyfestival', link: '/om-fantasyfestivalen/hvordan-begyndte-fantasyfestival' },
+              { title: 'EAN- og CVR-numre', link: 'praktisk-info/ean-og-cvrnumre' },
+              { title: 'Handicaptilgængelighed', link: '/praktisk-info/handicaptilgaengelighed' },
+              { title: 'Hvor og hvornår', link: '/praktisk-info/hvor-og-hvornaar' },
+              { title: 'Mad og drikke', link: '/praktisk-info/mad-og-drikke' },
+              { title: 'Overnatning i Esbjerg', link: '/praktisk-info/overnatning-i-esbjerg' },
+              { title: 'Praktikanter', link: '/praktisk-info/praktikanter' },
+              { title: 'Sponsorer og samarbejdspartnere', link: '/praktisk-info/sponsorer-og-samarbejdspartnere' },
+              { title: 'Transport', link: '/praktisk-info/transport' },
+            ]
+              }
+          />
+          <DropdownMenu
+            title="Markedspladsen"
+            routes={
+            [
+              { title: 'Standholdere og annoncører', link: '/standholdere-og-annoncoerer' },
+              { title: 'Kunstnerhjørnet', link: '/kunstnerhjoernet' },
+              { title: 'Markedsplads', link: '/markedsplads' },
+              { title: 'Messe', link: '/messe' },
+            ]
+              }
+          />
+          <HeaderLink title="Min liste" link="/min-liste" />
         </div>
       </nav>
     </div>

@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import TextField from '@mui/material/TextField';
 import FilterSelect from './FilterSelect';
 
-function FilterForm({ filters, setFilters }) {
+function FilterForm({
+  filters, setFilters, search, setSearch,
+}) {
   const [listProgram, setListProgram] = useState({
     category: ['Alle kategorier'],
     location: ['Alle lokationer'],
@@ -53,6 +56,10 @@ function FilterForm({ filters, setFilters }) {
     }));
   };
 
+  const handleInputChange = (event) => {
+    setSearch(event.target.value);
+  };
+
   return (
     <div className="filters">
       <FilterSelect
@@ -84,6 +91,14 @@ function FilterForm({ filters, setFilters }) {
         value={filters.registration}
         setValue={setRegister}
         list={listProgram.registration}
+      />
+      <br />
+      <br />
+      <TextField
+        label="Søg"
+        variant="outlined"
+        onChange={handleInputChange}
+        debounceTimeout={1000}
       />
     </div>
   );

@@ -6,6 +6,7 @@ import FilterForm from '../components/FilterForm';
 
 function Program() {
   const [list, setList] = useState(programData);
+  const [search, setSearch] = useState('');
   const [filters, setFilters] = useState(
     {
       category: 'Alle kategorier',
@@ -35,7 +36,16 @@ function Program() {
     }
   });
 
-  function resetFilters() {
+  if (filteredList.length > 0) {
+    filteredList = filteredList.filter((obj) => {
+      if (obj.speaker !== null) {
+        return obj.title.toLowerCase().includes(search.toLowerCase()) || obj.speaker.toLowerCase().includes(search.toLowerCase());
+      }
+      return obj.title.toLowerCase().includes(search.toLowerCase());
+    });
+  }
+
+  const resetFilters = () => {
     setFilters({
       category: 'Alle kategorier',
       program_location: 'Alle lokationer',
@@ -43,12 +53,17 @@ function Program() {
       times: 'Alle tidspunkter',
       registration: 'Alle aktiviteter',
     });
-  }
+  };
 
   return (
     <div>
       <div className="formField">
-        <FilterForm filters={filters} setFilters={setFilters} />
+        <FilterForm
+          filters={filters}
+          setFilters={setFilters}
+          search={search}
+          setSearch={setSearch}
+        />
         <Button variant="outlined" onClick={resetFilters}>Reset</Button>
       </div>
       {filteredList.map((obj) => (
