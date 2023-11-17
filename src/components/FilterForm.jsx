@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import TextField from '@mui/material/TextField';
+import debounce from 'lodash/debounce';
 import FilterSelect from './FilterSelect';
 
 function FilterForm({
-  filters, setFilters, search, setSearch,
+  filters, setFilters, setSearch,
 }) {
   const [listProgram, setListProgram] = useState({
     category: ['Alle kategorier'],
@@ -56,9 +57,14 @@ function FilterForm({
     }));
   };
 
-  const handleInputChange = (event) => {
+  const changeHandler = (event) => {
     setSearch(event.target.value);
   };
+
+  const handleInputChange = useCallback(
+    debounce(changeHandler, 400),
+    [],
+  );
 
   return (
     <div className="filters">
@@ -98,7 +104,6 @@ function FilterForm({
         label="Søg"
         variant="outlined"
         onChange={handleInputChange}
-        debounceTimeout={1000}
       />
     </div>
   );

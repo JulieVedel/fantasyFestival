@@ -17,7 +17,6 @@ function FilterSelect({
       <Select
         MenuProps={{ disableScrollLock: true }}
         labelId="demo-simple-select-standard-label"
-        id="demo-simple-select-standard"
         value={value}
         onChange={handleChange}
         label={label}

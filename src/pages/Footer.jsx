@@ -12,7 +12,7 @@ function Footer() {
       <div className="footer">
 
         <div className="footerTableRow">
-          <div className='logoFooter'>
+          <div className="logoFooter">
             <img src={logo} alt="FantasyFestival logo" className="logoFooter" />
           </div>
           <Button size="small">

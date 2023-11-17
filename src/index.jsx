@@ -9,6 +9,7 @@ import News from './pages/News';
 import NoPage from './pages/NoPage';
 import Header1 from './pages/Header';
 import Footer from './pages/Footer';
+import Admin from './pages/Admin';
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="program" element={<Program />} />
           <Route path="nyheder" element={<News />} />
+          <Route path="admin" element={<Admin />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

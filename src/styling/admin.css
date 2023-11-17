@@ -1,0 +1,17 @@
+.loginInput {
+    padding: 30px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    width: 50%;
+    top: 50%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+#errorText {
+    color: red;
+}
+
+.newActivity {
+    
+}

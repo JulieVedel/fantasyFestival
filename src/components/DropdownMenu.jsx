@@ -39,7 +39,10 @@ export default function DropdownMenu({ title, routes }) {
         }}
       >
         {routes.map((route) => (
-          <MenuItem onClick={() => { window.location.href = route.link; }}>
+          <MenuItem
+            key={route.title}
+            onClick={() => { window.location.href = route.link; }}
+          >
             {route.title}
           </MenuItem>
         ))}
