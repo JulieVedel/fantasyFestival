@@ -98,13 +98,14 @@ function FilterForm({
         setValue={setRegister}
         list={listProgram.registration}
       />
-      <br />
-      <br />
-      <TextField
-        label="Søg"
-        variant="outlined"
-        onChange={handleInputChange}
-      />
+      <div className="filters">
+        <TextField
+          className="searchBar"
+          label="Søg efter aktivitet"
+          variant="outlined"
+          onChange={handleInputChange}
+        />
+      </div>
     </div>
   );
 }

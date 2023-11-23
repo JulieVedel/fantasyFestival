@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 import ProgramItem from '../components/ProgramItem';
 import FilterForm from '../components/FilterForm';
 
@@ -61,22 +62,49 @@ function Program() {
       times: 'Alle tidspunkter',
       registration: 'Alle aktiviteter',
     });
+    setSearch('');
+  };
+
+  const downloadProgram = () => {
+    fetch('http://localhost:8000/downloadProgram')
+      .then((res) => {
+        res.blob()
+          .then((blob) => {
+            const filename = res.headers.get('Content-Disposition').split('filename=')[1].replace(/"/g, '');
+            const fileURL = window.URL.createObjectURL(blob);
+            const alink = document.createElement('a');
+            alink.href = fileURL;
+            alink.download = filename;
+            alink.click();
+          });
+      });
   };
 
   return (
     <div>
-      <div className="formField">
+      <div className="formField adminContent">
         <FilterForm
           filters={filters}
           setFilters={setFilters}
           search={search}
           setSearch={setSearch}
         />
-        <Button variant="outlined" onClick={resetFilters}>Reset</Button>
+        <div className="buttons">
+          <Button variant="contained" onClick={resetFilters}>Ryd filtere</Button>
+          <Button variant="contained" onClick={downloadProgram}>Download program</Button>
+        </div>
+        <hr />
+        {filteredList.length === 0 && (
+        <div className="centered">
+          <Typography variant="body2">Ingen resultater med disse filtre</Typography>
+        </div>
+        )}
+
+        {filteredList.map((obj) => (
+          <ProgramItem key={obj.program_id} item={obj} />
+        ))}
       </div>
-      {filteredList.map((obj) => (
-        <ProgramItem key={obj.program_id} item={obj} />
-      ))}
+
     </div>
   );
 }

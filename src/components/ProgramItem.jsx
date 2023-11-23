@@ -49,7 +49,13 @@ function ProgramItem({ item }) {
   };
 
   return (
-    <div key={item.program_id} className="item">
+    <div key={item.program_id} className="item, adminItem">
+      {item.image_url !== null && (
+      <div className="programImage">
+        <img src={`${item.image_url}`} alt={item.title} />
+      </div>
+      )}
+
       <div className="info">
         <Dialog
           disableScrollLock

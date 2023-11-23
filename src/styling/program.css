@@ -16,12 +16,25 @@
 }
 
 .info {
-    min-width: 80%
+    width: 85%;
+}
+
+.programImage {
+    width: 20%;
+    margin: auto;
+    margin-right: 2%;
+}
+
+.programImage img {
+    width: 100%;
+    aspect-ratio : 1 / 1;
+    object-fit: cover;
+    border-radius: 5px;
 }
 
 .buttonfield {
     text-align: center;
-    min-width: 20%;
+    max-width: 15%;
 }
 
 .buttonfield Button {
@@ -29,7 +42,29 @@
     margin: 5px;
     background-color: lightblue;
     color: black;
+}
 
+.buttonfield Button:hover {
+    margin: 5px;
+    background-color: rgb(95, 191, 223);
+    color: black;
+}
+
+.buttons {
+    text-align: center;
+    margin: auto;
+}
+
+.buttons Button {
+    margin: 5px;
+    background-color: lightblue;
+    color: black;
+}
+
+.buttons Button:hover {
+    margin: 5px;
+    background-color: rgb(95, 191, 223);
+    color: black;
 }
 
 #dialog-description h6 {
@@ -38,4 +73,15 @@
 
 .filters {
     text-align: center;
+    margin: 10px;
+    margin-bottom: 20px;
+}
+
+.searchBar {
+    width: 40%;
+}
+
+.centered {
+    text-align: center;
+    margin: auto;
 }

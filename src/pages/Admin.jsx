@@ -8,7 +8,7 @@ function Admin() {
   const [loading, setLoading] = useState(false);
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
-  const [page, setPage] = useState('loginPage');
+  const [page, setPage] = useState('pageLoggedIn');
   const [errorText, setErrorText] = useState(<br />);
 
   const handleClick = () => {
@@ -43,36 +43,39 @@ function Admin() {
         <br />
         <br />
         <div>
-          <TextField
-            disabled={loading}
-            label="Brugernavn"
-            variant="filled"
-            value={userName}
-            onInput={(e) => setUserName(e.target.value)}
-            required
-          />
-          <br />
-          <br />
-          <TextField
-            disabled={loading}
-            label="Password"
-            type="password"
-            variant="filled"
-            value={password}
-            onInput={(e) => setPassword(e.target.value)}
-            required
-          />
-          <br />
-          <br />
-          <Button
-            type="submit"
-            onClick={handleClick}
-            disabled={loading}
-            variant="outlined"
-          >
-            <span>Login</span>
-          </Button>
-          <p id="errorText">{errorText}</p>
+          <form action="">
+            <TextField
+              disabled={loading}
+              label="Brugernavn"
+              variant="filled"
+              value={userName}
+              onInput={(e) => setUserName(e.target.value)}
+              required
+            />
+            <br />
+            <br />
+            <TextField
+              disabled={loading}
+              label="Password"
+              type="password"
+              variant="filled"
+              value={password}
+              onInput={(e) => setPassword(e.target.value)}
+              required
+            />
+            <br />
+            <br />
+            <Button
+              type="submit"
+              onClick={handleClick}
+              disabled={loading}
+              variant="outlined"
+            >
+              <span>Login</span>
+            </Button>
+            <p id="errorText">{errorText}</p>
+          </form>
+
         </div>
       </div>
     );

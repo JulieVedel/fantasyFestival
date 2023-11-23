@@ -5,8 +5,10 @@ function Layout() {
   return (
     <div>
       <div className="fixed" />
-      <div className="content">
-        <Outlet />
+      <div style={{ minHeight: '600px' }}>
+        <div className="content">
+          <Outlet />
+        </div>
       </div>
     </div>
   );

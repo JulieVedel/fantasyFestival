@@ -10,61 +10,53 @@ import Select from '@mui/material/Select';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import SendIcon from '@mui/icons-material/Send';
+import axios from 'axios';
 
-const locations = [
-  'Dragehulen',
-  'Alkymistens Tårnværelse',
-  'Mørkekammeret',
-  'Tilføj ny lokation',
-];
-
-const categories = [
-  'Fantasyfilm og TV-serier',
-  'Foredrag og debat',
-  'Bedst til børn',
-  'Tilføj ny kategori',
-];
+const INITIAL_FORM_DATA = {
+  title: '',
+  date: '2024-09-14',
+  startTime: '10:00',
+  endTime: '11:00',
+  registration: false,
+  location: '',
+  newLocation: '',
+  category: '',
+  newCategory: '',
+  shortDesc: '',
+  desc: '',
+  speaker: '',
+  image: '',
+};
 
 function TabProgram() {
+  const [prevFileName, setPrevFileName] = useState('');
+  const [file, setFile] = useState();
   const [fileName, setFileName] = useState('');
-  const [title, setTitle] = useState('');
-  const [date, setDate] = useState('2024-09-14');
-  const [startTime, setStartTime] = useState('10:00');
-  const [endTime, setEndTime] = useState('11:00');
-  const [registration, setRegistration] = useState(false);
-  const [location, setLocation] = useState('');
-  const [newLocation, setNewLocation] = useState('');
-  const [category, setCategory] = useState('');
-  const [newCategory, setNewCategory] = useState('');
-  const [shortDesc, setShortDesc] = useState('');
-  const [desc, setDesc] = useState('');
-  const [speaker, setSpeaker] = useState('');
+  const [form, setForm] = useState(INITIAL_FORM_DATA);
+  const [locationSelect, setLocationSelect] = useState([
+    '- Tilføj ny lokation -',
+  ]);
+  const [categorySelect, setCategorySelect] = useState([
+    '- Tilføj ny kategori -',
+  ]);
+
+  function getLocationAndCategory() {
+    fetch('http://localhost:8000/getLocationAndCategory')
+      .then((res) => res.json())
+      .then((data) => {
+        setCategorySelect(data.list.category);
+        setLocationSelect(data.list.location);
+      });
+  }
 
   useEffect(() => {
+    getLocationAndCategory();
     fetch('http://localhost:8000/programPDF')
       .then((res) => res.json())
       .then((data) => {
-        setFileName(data.fileName);
+        setPrevFileName(data.fileName);
       });
   }, []);
-
-  function checkLocation() {
-    if (location === 'Tilføj ny lokation') {
-      return (
-        <TextField label="Ny lokation" variant="standard" value={newLocation} onChange={(e) => setNewLocation(e.target.value)} />
-      );
-    }
-    return null;
-  }
-
-  function checkCategory() {
-    if (category === 'Tilføj ny kategori') {
-      return (
-        <TextField label="Ny kategori" variant="standard" value={newCategory} onChange={(e) => setNewCategory(e.target.value)} />
-      );
-    }
-    return null;
-  }
 
   function getTimes(start, end) {
     const res = [];
@@ -78,38 +70,30 @@ function TabProgram() {
     return res;
   }
 
-  function resetForm() {
-    setFileName('');
-    setTitle('');
-    setDate('2024-09-14');
-    setStartTime('10:00');
-    setEndTime('11:00');
-    setRegistration(false);
-    setLocation('');
-    setNewLocation('');
-    setCategory('');
-    setNewCategory('');
-    setShortDesc('');
-    setDesc('');
-    setSpeaker('');
-  }
+  const resetForm = () => {
+    setForm(INITIAL_FORM_DATA);
+    getLocationAndCategory();
+  };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const newActivity = {
-      title,
-      date,
-      startTime,
-      endTime,
-      registration,
-      location,
-      category,
-      shortDesc,
-      desc,
-      speaker,
+      title: form.title,
+      date: form.date,
+      startTime: form.startTime,
+      endTime: form.endTime,
+      registration: form.registration,
+      location: form.location,
+      category: form.category,
+      shortDesc: form.shortDesc,
+      desc: form.desc,
+      speaker: form.speaker,
+      image: form.image,
     };
-    newActivity.location = newActivity.location === 'Tilføj ny lokation' ? newLocation : newActivity.location;
-    newActivity.category = newActivity.category === 'Tilføj ny kategori' ? newCategory : newActivity.category;
+    newActivity.location = newActivity.location === '- Tilføj ny lokation -' ? form.newLocation : newActivity.location;
+    newActivity.category = newActivity.category === '- Tilføj ny kategori -' ? form.newCategory : newActivity.category;
     newActivity.speaker = newActivity.speaker === '' ? null : newActivity.speaker;
+    newActivity.image = newActivity.image === '' ? null : newActivity.image;
 
     newActivity.times = getTimes(newActivity.startTime, newActivity.endTime);
 
@@ -122,122 +106,219 @@ function TabProgram() {
     resetForm();
   };
 
+  const downloadPdf = () => {
+    fetch('http://localhost:8000/openProgram')
+      .then((response) => {
+        response.blob()
+          .then((blob) => {
+            const fileURL = window.URL.createObjectURL(blob);
+            const alink = document.createElement('a');
+            alink.href = fileURL;
+            alink.target = '_blank';
+            alink.click();
+          });
+      });
+  };
+
+  function updateState(key, value) {
+    setForm((prevState) => ({ ...prevState, [key]: value }));
+  }
+
+  const uploadFile = async () => {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('fileName', fileName);
+    try {
+      const res = await axios.post(
+        'http://localhost:8000/uploadProgram',
+        formData,
+      );
+      setPrevFileName(res.data.fileName);
+    } catch (ex) {
+      console.log(ex);
+    }
+  };
+
+  const saveFile = (e) => {
+    setFile(e.target.files[0]);
+    setFileName(e.target.files[0].name);
+  };
+
   return (
     <div>
-      <div>
-        <Typography variant="h6" gutterBottom>{`Programmet: ${fileName}`}</Typography>
-        <Stack direction="row" spacing={2}>
+      <div className="adminItem">
+        <Typography variant="h6" gutterBottom>{`Programmet: ${prevFileName}`}</Typography>
+        <Stack direction="column" spacing={2}>
           <Button component="label" variant="contained">
             Upload nyt program
             <input
               type="file"
+              accept=".pdf"
               hidden
+              onChange={saveFile}
             />
           </Button>
-          <Button component="label" variant="contained">
+          <Button onClick={uploadFile}>upload</Button>
+          <Button component="label" variant="contained" onClick={downloadPdf}>
             Åben programmet
           </Button>
         </Stack>
       </div>
 
-      <div className="newActivityForm">
+      <div className="adminItem newActivityForm">
         <Typography variant="h6" gutterBottom>Tilføj ny aktivitet til programmet</Typography>
-        <TextField
-          label="Title"
-          variant="standard"
-          required
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <FormControlLabel
-          control={<Checkbox defaultChecked={registration} />}
-          onChange={(e) => setRegistration(e.target.checked)}
-          label="Kræver tilmelding?"
-        />
-        <br />
-        <TextField
-          label="Dato"
-          variant="standard"
-          type="date"
-          defaultValue={date}
-          required
-          onChange={(e) => setDate(e.target.value)}
-        />
-        <TextField
-          label="Starttid"
-          variant="standard"
-          type="time"
-          defaultValue={startTime}
-          required
-          onChange={(e) => setStartTime(e.target.value)}
-        />
-        <TextField
-          label="Sluttid"
-          variant="standard"
-          type="time"
-          defaultValue={endTime}
-          required
-          onChange={(e) => setEndTime(e.target.value)}
-        />
-        <br />
-        <FormControl sx={{ m: 1, minWidth: 80 }}>
-          <InputLabel required>Lokation</InputLabel>
-          <Select
-            value={location}
-            onChange={(event) => setLocation(event.target.value)}
-            autoWidth
-            label="Lokation"
-          >
-            {locations.map((obj) => (
-              <MenuItem key={obj} value={obj}>{obj}</MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        {checkLocation()}
-        <FormControl sx={{ m: 1, minWidth: 80 }}>
-          <InputLabel required>Kategori</InputLabel>
-          <Select
-            value={category}
-            onChange={(event) => setCategory(event.target.value)}
-            autoWidth
-            label="Kategori"
-          >
-            {categories.map((obj) => (
-              <MenuItem key={obj} value={obj}>{obj}</MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        {checkCategory()}
-        <br />
-        <TextField
-          label="Kort beskrivelse"
-          multiline
-          maxRows={4}
-          variant="standard"
-          required
-          value={shortDesc}
-          onChange={(e) => setShortDesc(e.target.value)}
-        />
-        <TextField
-          label="Fuld beskrivelse"
-          multiline
-          maxRows={4}
-          variant="standard"
-          required
-          value={desc}
-          onChange={(e) => setDesc(e.target.value)}
-        />
-        <TextField
-          label="Foredragsholder"
-          variant="standard"
-          value={speaker}
-          onChange={(e) => setSpeaker(e.target.value)}
-        />
-        <br />
+        <div>
+          <form onSubmit={handleSubmit}>
+            <div className="formRow">
+              <TextField
+                inputProps={{ maxLength: 255 }}
+                className="formInput"
+                label="Titel"
+                variant="standard"
+                required
+                value={form.title}
+                onChange={(e) => updateState('title', e.target.value)}
+                sx={{ width: '50%', marginRight: '5%' }}
+              />
+              <FormControlLabel
+                control={<Checkbox defaultChecked={form.registration} />}
+                onChange={(e) => updateState('registration', e.target.checked)}
+                label="Kræver tilmelding?"
+              />
+            </div>
+            <div className="formRow">
+              <TextField
+                label="Dato"
+                variant="standard"
+                type="date"
+                defaultValue={form.date}
+                required
+                onChange={(e) => updateState('date', e.target.value)}
+                sx={{ marginRight: '5%' }}
+              />
+              <TextField
+                label="Starttid"
+                variant="standard"
+                type="time"
+                defaultValue={form.startTime}
+                required
+                onChange={(e) => updateState('startTime', e.target.value)}
+                sx={{ marginRight: '5%' }}
+              />
+              <TextField
+                label="Sluttid"
+                variant="standard"
+                type="time"
+                defaultValue={form.endTime}
+                required
+                onChange={(e) => updateState('endTime', e.target.value)}
+                sx={{ marginRight: '5%' }}
+              />
+              <TextField
+                inputProps={{ maxLength: 255 }}
+                label="Foredragsholder"
+                variant="standard"
+                value={form.speaker}
+                onChange={(e) => updateState('speaker', e.target.value)}
+                sx={{ width: '30%', marginRight: '5%' }}
+              />
+            </div>
+            <div className="formRow">
+              <FormControl sx={{ m: 1, minWidth: 120 }}>
+                <InputLabel required>Lokation</InputLabel>
+                <Select
+                  required
+                  value={form.location}
+                  onChange={(e) => updateState('location', e.target.value)}
+                  autoWidth
+                  label="Lokation"
+                  MenuProps={{ disableScrollLock: true, PaperProps: { sx: { maxHeight: 250 } } }}
+                >
+                  {locationSelect.map((obj) => (
+                    <MenuItem key={obj} value={obj}>{obj}</MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+              {form.location === '- Tilføj ny lokation -' && (
+              <TextField
+                inputProps={{ maxLength: 255 }}
+                required
+                label="Ny lokation"
+                variant="standard"
+                value={form.newLocation}
+                onChange={(e) => updateState('newLocation', e.target.value)}
+              />
+              )}
+              <FormControl sx={{ m: 1, minWidth: 120 }}>
+                <InputLabel required>Kategori</InputLabel>
+                <Select
+                  required
+                  style={{ maxHeight: '100px' }}
+                  value={form.category}
+                  onChange={(e) => updateState('category', e.target.value)}
+                  autoWidth
+                  label="Kategori"
+                  MenuProps={{ disableScrollLock: true, PaperProps: { sx: { maxHeight: 250 } } }}
+                >
+                  {categorySelect.map((obj) => (
+                    <MenuItem key={obj} value={obj}>{obj}</MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+              {form.category === '- Tilføj ny kategori -' && (
+              <TextField
+                inputProps={{ maxLength: 255 }}
+                required
+                label="Ny kategori"
+                variant="standard"
+                value={form.newCategory}
+                onChange={(e) => updateState('newCategory', e.target.value)}
+              />
+              )}
+            </div>
+            <div className="formRow">
+              <TextField
+                inputProps={{ maxLength: 255 }}
+                label="Kort beskrivelse"
+                multiline
+                rows={3}
+                variant="standard"
+                required
+                value={form.shortDesc}
+                onChange={(e) => updateState('shortDesc', e.target.value)}
+                sx={{ width: '25%', marginRight: '5%' }}
+              />
+              <TextField
+                label="Fuld beskrivelse"
+                multiline
+                rows={3}
+                variant="standard"
+                required
+                value={form.desc}
+                onChange={(e) => updateState('desc', e.target.value)}
+                sx={{ width: '50%', marginRight: '5%' }}
+              />
+            </div>
+            <div className="formRow">
+              <TextField
+                label="Billede-URL"
+                variant="standard"
+                value={form.image}
+                onChange={(e) => updateState('image', e.target.value)}
+                sx={{ width: '30%', marginRight: '5%' }}
+              />
+            </div>
+            <div className="formButton">
+              <Button variant="contained" endIcon={<SendIcon />} type="submit">
+                Opret
+              </Button>
+              <Button variant="contained" endIcon={<SendIcon />} onClick={resetForm}>
+                Ryd felter
+              </Button>
+            </div>
+          </form>
+        </div>
       </div>
-      <Button variant="contained" endIcon={<SendIcon />} onClick={handleSubmit}>
-        Opret
-      </Button>
     </div>
   );
 }

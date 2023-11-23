@@ -3,6 +3,8 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import React from 'react';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
 import logo from '../Fantasyfestival_logo.jpg';
 import '../styling/footer.css';
 
@@ -10,7 +12,6 @@ function Footer() {
   return (
     <div className="footerBackground">
       <div className="footer">
-
         <div className="footerTableRow">
           <div className="logoFooter">
             <img src={logo} alt="FantasyFestival logo" className="logoFooter" />
@@ -48,8 +49,12 @@ function Footer() {
           <br />
           <Button size="small">Tilgængelighedserklæring</Button>
           <br />
+          <div className="SoMe">
+            <br />
+            <a href="https://www.facebook.com/fantasyfestivalen" target="_blank" rel="noreferrer" aria-label="Facebook link"><FacebookIcon fontSize="large" /></a>
+            <a href="https://www.instagram.com/fantasyfestivalen/" target="_blank" rel="noreferrer" aria-label="Instagram link"><InstagramIcon fontSize="large" /></a>
+          </div>
         </div>
-
       </div>
     </div>
   );
