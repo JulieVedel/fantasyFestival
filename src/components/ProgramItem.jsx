@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styling/program.css';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -9,7 +9,18 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 function ProgramItem({ item }) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
+  const [myListText, setMyListText] = useState('Tilføj liste');
+
+  useEffect(() => {
+    if (localStorage.getItem('myList') !== null) {
+      const list = JSON.parse(localStorage.getItem('myList'));
+      const listOfId = list.map((e) => e.program_id);
+      if (listOfId.includes(item.program_id)) {
+        setMyListText('Tilføjet');
+      }
+    }
+  }, []);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -45,7 +56,23 @@ function ProgramItem({ item }) {
   }
 
   const addToList = () => {
-    console.log('added to my list');
+    if (localStorage.getItem('myList') === null) {
+      localStorage.setItem('myList', JSON.stringify([item]));
+      setMyListText('Tilføjet');
+    } else {
+      const list = JSON.parse(localStorage.getItem('myList'));
+      const index = list.map((e) => e.program_id).indexOf(item.program_id);
+      // const index = list.indexOf(item);
+      if (index > -1) {
+        list.splice(index, 1);
+        setMyListText('Tilføj liste');
+      } else {
+        list.push(item);
+        setMyListText('Tilføjet');
+      }
+      console.log(list);
+      localStorage.setItem('myList', JSON.stringify(list));
+    }
   };
 
   return (
@@ -92,7 +119,7 @@ function ProgramItem({ item }) {
           Læs mere
         </Button>
         <Button variant="contained" onClick={addToList}>
-          Min liste
+          {myListText}
         </Button>
         {setLinks()}
       </div>

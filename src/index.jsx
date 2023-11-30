@@ -10,6 +10,7 @@ import NoPage from './pages/NoPage';
 import Header1 from './pages/Header';
 import Footer from './pages/Footer';
 import Admin from './pages/Admin';
+import MyList from './pages/MyList';
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="program" element={<Program />} />
           <Route path="nyheder" element={<News />} />
           <Route path="admin" element={<Admin />} />
+          <Route path="min-liste" element={<MyList />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
