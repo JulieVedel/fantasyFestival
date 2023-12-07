@@ -1,38 +1,56 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
+import React, { useState, useEffect } from 'react';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import NewActivityForm from './NewActivityForm';
 
-export default function FormDialog({ open, setOpen }) {
+export default function FormDialog({
+  open, setOpen, id, setId, setRows, setKey,
+}) {
+  const [activity, setActivity] = useState({});
+
+  useEffect(() => {
+    fetch('http://localhost:8000/getActivity', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const rows = data.activity;
+        setActivity(rows);
+      });
+  }, [id]);
+
   const handleClose = () => {
     setOpen(false);
+    setTimeout(() => {
+      setId(0);
+    }, 100);
   };
 
   return (
     <Dialog open={open} onClose={handleClose}>
-      <DialogTitle>Subscribe</DialogTitle>
+      <DialogTitle>Rediger aktivitet</DialogTitle>
       <DialogContent>
-        <DialogContentText>
-          Denne funktion virker ikke endnu
-        </DialogContentText>
-        <TextField
-          autoFocus
-          margin="dense"
-          id="name"
-          label="Email Address"
-          type="email"
-          fullWidth
-          variant="standard"
-        />
+        {activity === undefined ? (
+          <div>
+            loading...
+          </div>
+        )
+          : (
+            <NewActivityForm
+              activity={activity}
+              setOpen={setOpen}
+              setRows={setRows}
+              setKey={setKey}
+            />
+          )}
       </DialogContent>
-      <DialogActions>
-        <Button onClick={handleClose}>Cancel</Button>
-        <Button onClick={handleClose}>Subscribe</Button>
-      </DialogActions>
+      {/*       <DialogActions>
+        <Button onClick={handleClose}>Fortryd</Button>
+        <Button onClick={handleClose}>Gem ændringer</Button>
+      </DialogActions> */}
     </Dialog>
   );
 }

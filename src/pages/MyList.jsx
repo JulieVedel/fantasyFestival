@@ -14,6 +14,7 @@ function MyList() {
   const [myList, setMyList] = useState([]);
   const [dates, setDates] = useState([]);
   const [email, setEmail] = useState('');
+  const [listWasSent, setListWasSent] = useState(false);
 
   useEffect(() => {
     if (localStorage.getItem('myList') !== null) {
@@ -71,26 +72,55 @@ function MyList() {
   const sendEmail = (e) => {
     e.preventDefault();
     console.log('send', email);
+    fetch('http://localhost:8000/sendEmail', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, myList, dates }),
+    });
     setEmail('');
+    clearMyList();
+    setListWasSent(true);
   };
+
+  if (listWasSent) {
+    return (
+      <div className="adminItem">
+        <div style={{ minWidth: '100%' }}>
+          <Typography variant="h3" component="h2">Min liste</Typography>
+          <br />
+          <div style={{ textAlign: 'center' }}>
+            <Typography variant="subtitle1" component="h2">Din liste vil blive sendt til din email inden længe.</Typography>
+            <Typography variant="subtitle1" component="h2">Hvis du ikke modtager din liste, så tjek din spam-folder</Typography>
+          </div>
+
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="adminItem">
       <div style={{ minWidth: '100%' }}>
         <Typography variant="h3" component="h2">Min liste</Typography>
+        <br />
         {dates.length > 0 ? (
           <div>
             <p>Du kan sende din gemte liste på e-mail, så du kan finde den igen.</p>
-            <form onSubmit={sendEmail}>
-              <TextField
-                label="E-mail"
-                type="email"
-                variant="outlined"
-                value={email}
-                onInput={(e) => setEmail(e.target.value)}
-              />
-              <Button type="submit">Send til e-mail</Button>
-            </form>
+
+            <div className="buttons">
+              <form onSubmit={sendEmail}>
+                <TextField
+                  sx={{ width: '30%', marginRight: '10px' }}
+                  label="E-mail"
+                  type="email"
+                  variant="outlined"
+                  value={email}
+                  onInput={(e) => setEmail(e.target.value)}
+                />
+                <Button type="submit">Send til e-mail</Button>
+              </form>
+            </div>
+
             {dates.map((date) => (
               <div key={date}>
                 <br />
@@ -99,10 +129,10 @@ function MyList() {
                   <Table size="small">
                     <TableHead>
                       <TableRow>
-                        <TableCell sx={{ fontWeight: 'bold' }}>Tidspunkt</TableCell>
-                        <TableCell sx={{ fontWeight: 'bold' }}>Titel</TableCell>
-                        <TableCell sx={{ fontWeight: 'bold' }}>Lokation</TableCell>
-                        <TableCell sx={{ fontWeight: 'bold' }}>Beskrivelse</TableCell>
+                        <TableCell sx={{ fontWeight: 'bold', width: '11%' }}>Tidspunkt</TableCell>
+                        <TableCell sx={{ fontWeight: 'bold', width: '29%' }}>Titel</TableCell>
+                        <TableCell sx={{ fontWeight: 'bold', width: '20%' }}>Lokation</TableCell>
+                        <TableCell sx={{ fontWeight: 'bold', width: '40%' }}>Beskrivelse</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
@@ -132,8 +162,8 @@ function MyList() {
             </div>
           </div>
         ) : (
-          <div>
-            <h4>Du har ikke nogen aktiviteter på din liste.</h4>
+          <div style={{ textAlign: 'center' }}>
+            <Typography variant="subtitle1" component="h2">Du har ikke nogen aktiviteter på din liste.</Typography>
             <div className="buttons">
               <Button onClick={() => { window.location.href = '/program'; }}>Gå til program</Button>
             </div>

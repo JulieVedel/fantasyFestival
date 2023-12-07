@@ -7,7 +7,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
 export default function DeleteActitivyDialog({
-  open, setOpen, id, setOpenAlert, setRows,
+  open, setOpen, id, setOpenAlert, setRows, setKey,
 }) {
   const handleClose = () => {
     setOpen(false);
@@ -20,6 +20,7 @@ export default function DeleteActitivyDialog({
       body: JSON.stringify({ id }),
     });
     setRows((prevState) => prevState.filter((activity) => activity.program_id !== id));
+    setKey((prevState) => prevState + 1);
     setOpen(false);
     setOpenAlert(true);
   };

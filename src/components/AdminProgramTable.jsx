@@ -126,7 +126,9 @@ EnhancedTableHead.propTypes = {
   orderBy: PropTypes.string.isRequired,
 };
 
-function AdminProgramTable({ rows, setRows, setOpenAlert }) {
+function AdminProgramTable({
+  rows, setRows, setOpenAlert, setKey,
+}) {
   const [openFormDialog, setOpenFormDialog] = useState(false);
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false);
   const [order, setOrder] = useState('asc');
@@ -173,13 +175,22 @@ function AdminProgramTable({ rows, setRows, setOpenAlert }) {
 
   return (
     <Box sx={{ width: '100%' }}>
-      <FormDialog open={openFormDialog} setOpen={setOpenFormDialog} />
+      <FormDialog
+        open={openFormDialog}
+        setOpen={setOpenFormDialog}
+        id={itemId}
+        setId={setItemId}
+        rows={rows}
+        setRows={setRows}
+        setKey={setKey}
+      />
       <DeleteActitivyDialog
         open={openDeleteDialog}
         setOpen={setOpenDeleteDialog}
         id={itemId}
         setOpenAlert={setOpenAlert}
         setRows={setRows}
+        setKey={setKey}
       />
       <Paper sx={{ width: '100%', mb: 2 }}>
         <TableContainer>
@@ -214,11 +225,11 @@ function AdminProgramTable({ rows, setRows, setOpenAlert }) {
                     >
                       {row.title}
                     </TableCell>
-                    <TableCell align="right">{row.program_location}</TableCell>
-                    <TableCell align="right">{row.program_date}</TableCell>
-                    <TableCell align="right">{row.time_start}</TableCell>
-                    <TableCell align="right">{row.time_end}</TableCell>
-                    <TableCell align="right">
+                    <TableCell align="left">{row.program_location}</TableCell>
+                    <TableCell align="left">{row.program_date}</TableCell>
+                    <TableCell align="left">{row.time_start}</TableCell>
+                    <TableCell align="left">{row.time_end}</TableCell>
+                    <TableCell align="left">
                       <div>
                         <EditIcon onClick={editItem(row)} />
                       </div>
