@@ -8,7 +8,7 @@ function Admin() {
   const [loading, setLoading] = useState(false);
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
-  const [page, setPage] = useState('pageLoggedIn');
+  const [page, setPage] = useState('loginPage');
   const [errorText, setErrorText] = useState(<br />);
 
   const handleClick = () => {

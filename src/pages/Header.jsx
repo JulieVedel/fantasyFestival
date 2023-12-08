@@ -49,13 +49,9 @@ export default function Header() {
               { title: 'Om Fantasyfestivalen', link: '/om-fantasyfestivalen' },
               { title: 'Hvordan begyndte fantasyfestival', link: '/om-fantasyfestivalen/hvordan-begyndte-fantasyfestival' },
               { title: 'EAN- og CVR-numre', link: 'praktisk-info/ean-og-cvrnumre' },
-              { title: 'Handicaptilgængelighed', link: '/praktisk-info/handicaptilgaengelighed' },
-              { title: 'Hvor og hvornår', link: '/praktisk-info/hvor-og-hvornaar' },
-              { title: 'Mad og drikke', link: '/praktisk-info/mad-og-drikke' },
-              { title: 'Overnatning i Esbjerg', link: '/praktisk-info/overnatning-i-esbjerg' },
+              { title: 'FAQ', link: '/praktisk-info/FAQ' },
               { title: 'Praktikanter', link: '/praktisk-info/praktikanter' },
               { title: 'Sponsorer og samarbejdspartnere', link: '/praktisk-info/sponsorer-og-samarbejdspartnere' },
-              { title: 'Transport', link: '/praktisk-info/transport' },
             ]
               }
           />

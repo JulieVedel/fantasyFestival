@@ -43,12 +43,12 @@ function FilterForm({
     }));
   };
 
-  const setTime = (timeFilter) => {
+  /*   const setTime = (timeFilter) => {
     setFilters((prevState) => ({
       ...prevState,
       times: timeFilter,
     }));
-  };
+  }; */
 
   const setRegister = (registerFilter) => {
     setFilters((prevState) => ({
@@ -86,12 +86,12 @@ function FilterForm({
         setValue={setDate}
         list={listProgram.date}
       />
-      <FilterSelect
+      {/*       <FilterSelect
         label="Tidspunkt"
         value={filters.times}
         setValue={setTime}
         list={listProgram.times}
-      />
+      /> */}
       <FilterSelect
         label="Tilmelding"
         value={filters.registration}

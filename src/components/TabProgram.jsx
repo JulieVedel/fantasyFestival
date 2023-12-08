@@ -29,6 +29,14 @@ function TabProgram() {
       });
   }, []);
 
+  useEffect(() => {
+    fetch('http://localhost:8000/programPDF')
+      .then((res) => res.json())
+      .then((data) => {
+        setPrevFileName(data.fileName);
+      });
+  }, []);
+
   const downloadPdf = () => {
     fetch('http://localhost:8000/openProgram')
       .then((response) => {

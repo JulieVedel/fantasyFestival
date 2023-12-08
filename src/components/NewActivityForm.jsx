@@ -63,6 +63,7 @@ function NewActivityForm({
   }
 
   const resetForm = () => {
+    setOpen(false);
     setForm(INITIAL_FORM_DATA);
     getLocationAndCategory();
   };

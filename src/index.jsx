@@ -12,6 +12,7 @@ import Footer from './pages/Footer';
 import Admin from './pages/Admin';
 import MyList from './pages/MyList';
 import Maps from './pages/Maps';
+import FAQ from './pages/FAQ';
 
 export default function App() {
   return (
@@ -24,7 +25,10 @@ export default function App() {
           <Route path="nyheder" element={<News />} />
           <Route path="admin" element={<Admin />} />
           <Route path="min-liste" element={<MyList />} />
-          <Route path="kort-over-festivalen" element={<Maps />} />
+          <Route path="markedsplads" element={<Maps />} />
+          <Route path="praktisk-info/">
+            <Route path="FAQ" element={<FAQ />} />
+          </Route>
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

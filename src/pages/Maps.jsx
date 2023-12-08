@@ -1,9 +1,40 @@
-import React, { useState } from 'react';
+import React, {
+  useState, useRef, useLayoutEffect, useEffect,
+} from 'react';
 import Typography from '@mui/material/Typography';
 import Mapper from '../components/Mapper';
 
 function Maps() {
-  const [market, setMarket] = useState('');
+  const ref = useRef(null);
+
+  const [width, setWidth] = useState(0);
+  const [market, setMarket] = useState('Hold musen over et ikon for at læse mere');
+
+  useLayoutEffect(() => {
+    setWidth(ref.current.offsetWidth);
+  }, []);
+
+  useEffect(() => {
+    function handleWindowResize() {
+      setWidth(ref.current.clientWidth);
+    }
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
+
+  const handleMouseOver = (e) => {
+    document.getElementById('img-mapper').className = 'darkened';
+    document.getElementById('informationBox').style.display = 'block';
+  };
+
+  const handleMouseOut = () => {
+    document.getElementById('img-mapper').className = '';
+    document.getElementById('informationBox').style.display = 'none';
+  };
 
   return (
     <div className="adminContent">
@@ -15,15 +46,23 @@ function Maps() {
         <br />
         Se det her:
       </Typography>
-      <div style={{ position: 'relative', margin: 'auto' }}>
-        <Mapper setMarket={setMarket} />
+      <div
+        ref={ref}
+        style={{
+          position: 'relative', margin: 'auto', width: '80%', paddingBottom: '20px',
+        }}
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+      >
+        <Mapper setMarket={setMarket} width={width} />
         <div id="informationBox">
-          <Typography variant="h6" gutterBottom>
+          <Typography variant="h6" gutterBottom color="white">
             {market}
           </Typography>
-          <Typography variant="body2" gutterBottom>
+          <Typography variant="body2" gutterBottom color="white">
             Beskrivelse om denne bod, hvor den findes og hvad den sælger.
-            <br />
+          </Typography>
+          <Typography variant="body2" gutterBottom color="white" sx={{ textDecoration: 'underline' }}>
             Klik på ikon for at finde vej.
           </Typography>
 

@@ -91,6 +91,14 @@ function ProgramItem({ item }) {
           aria-labelledby="dialog-read-more"
           aria-describedby="dialog-description"
         >
+          {item.image_url !== null && (
+            <div style={{
+              width: '100%', textAlign: 'center', height: '300px', marginTop: '15px',
+            }}
+            >
+              <img src={`${item.image_url}`} alt={item.title} style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'cover' }} />
+            </div>
+          )}
           <DialogTitle id="dialog-read-more">
             {item.title}
           </DialogTitle>
@@ -103,7 +111,7 @@ function ProgramItem({ item }) {
             </DialogContentText>
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose}>Tilføj</Button>
+            <Button onClick={addToList}>{myListText}</Button>
             <Button onClick={handleClose} autoFocus>Luk</Button>
           </DialogActions>
         </Dialog>

@@ -14,7 +14,7 @@ function Program() {
       category: defaultValues[0],
       program_location: defaultValues[1],
       program_date: defaultValues[2],
-      times: defaultValues[3],
+      //times: defaultValues[3],
       registration: defaultValues[4],
     },
   );
@@ -30,12 +30,13 @@ function Program() {
   let filteredList = list;
   Object.keys(filters).forEach((filter) => {
     if (defaultValues.includes(filters[filter])) return;
+    filteredList = filteredList.filter((obj) => obj[`${(filter.toLowerCase())}`] === filters[filter]);
 
-    if (filter === 'times') {
+/*     if (filter === 'times') {
       filteredList = filteredList.filter((obj) => obj[`${(filter.toLowerCase())}`].includes(filters[filter]));
     } else {
       filteredList = filteredList.filter((obj) => obj[`${(filter.toLowerCase())}`] === filters[filter]);
-    }
+    } */
   });
 
   if (list.length === 0) {
@@ -59,7 +60,7 @@ function Program() {
       category: 'Alle kategorier',
       program_location: 'Alle lokationer',
       program_date: 'Alle dage',
-      times: 'Alle tidspunkter',
+      //times: 'Alle tidspunkter',
       registration: 'Alle aktiviteter',
     });
     setSearch('');

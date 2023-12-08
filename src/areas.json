@@ -1,0 +1,89 @@
+[
+    {
+      "title": "The Bead Family", "coords": [599,585,21], "shape": "circle", "name": "The Bead Family", "id": "1"
+    },
+    {
+      "title": "Bobbelvognen", "coords": [560,422,21], "shape": "circle", "name": "Bobbelvognen", "id": "2"
+    },
+    {
+      "title": "Børne- og ungdomsteater", "coords": [189,265,21], "shape": "circle", "name": "Børne- og ungdomsteater", "id": "3"
+    },
+    {
+        "title": "De grønne pigespejdere", "coords": [665,442,21], "shape": "circle", "name": "De grønne pigespejdere", "id": "4"
+    },
+    {
+        "title": "Dragernes Event", "coords": [699,211,21], "shape": "circle", "name": "Dragernes Event1", "id": "5"
+    },
+    {
+        "title": "Dragernes Event", "coords": [718,166,21], "shape": "circle", "name": "Dragernes Event2", "id": "6"
+    },
+    {
+        "title": "Dødens Dør", "coords": [567,187,21], "shape": "circle", "name": "Dødens Dør", "id": "7"
+    },
+    {
+        "title": "Dragon Inn", "coords": [724,553,21], "shape": "circle", "name": "Dragon Inn", "id": "8"
+    },
+    {
+        "title": "EPOS Efterskole", "coords": [211,224,21], "shape": "circle", "name": "EPOS Efterskole", "id": "9"
+    },
+    {
+        "title": "Eventyrernes Laug HQ", "coords": [132,390,21], "shape": "circle", "name": "Eventyrernes Laug HQ", "id": "10"
+    },
+    {
+        "title": "Friggs Fruerstue", "coords": [689,586,21], "shape": "circle", "name": "Friggs Fruerstue", "id": "11"
+    },
+    {
+        "title": "Gimlegaard", "coords": [610,232,21], "shape": "circle", "name": "Gimlegaard", "id": "12"
+    },
+    {
+        "title": "Griseriet", "coords": [131,317,21], "shape": "circle", "name": "Griseriet", "id": "13"
+    },
+    {
+        "title": "Ildsmeden", "coords": [622,540,21], "shape": "circle", "name": "Ildsmeden", "id": "14"
+    },
+    {
+        "title": "Kaffevognen", "coords": [521,482,21], "shape": "circle", "name": "Kaffevognen", "id": "15"
+    },
+    {
+        "title": "Kamparena", "coords": [643,146,21], "shape": "circle", "name": "Kamparena", "id": "16"
+    },
+    {
+        "title": "Karamelmesteren", "coords": [578,306,21], "shape": "circle", "name": "Karamelmesteren", "id": "17"
+    },
+    {
+        "title": "Korn 180", "coords": [132,272,21], "shape": "circle", "name": "Korn 180", "id": "18"
+    },
+    {
+        "title": "Martillo Workshop", "coords": [717,121,21], "shape": "circle", "name": "Martillo Workshop", "id": "19"
+    },
+    {
+        "title": "Maximus", "coords": [700,253,21], "shape": "circle", "name": "Maximus", "id": "20"
+    },
+    {
+        "title": "Mjødladen", "coords": [667,539,21], "shape": "circle", "name": "Mjødladen", "id": "21"
+    },
+    {
+        "title": "Mjólnír-Natur", "coords": [147,216,21], "shape": "circle", "name": "Mjólnír-Natur", "id": "22"
+    },
+    {
+        "title": "Morten Villebøl", "coords": [611,187,21], "shape": "circle", "name": "Morten Villebøl", "id": "23"
+    },
+    {
+        "title": "Myrthue", "coords": [645,586,21], "shape": "circle", "name": "Myrthue", "id": "24"
+    },
+    {
+        "title": "Pandekager", "coords": [521,234,21], "shape": "circle", "name": "Pandekager", "id": "25"
+    },
+    {
+        "title": "Ravnens Datter", "coords": [656,232,21], "shape": "circle", "name": "Ravnens Datter", "id": "26"
+    },
+    {
+        "title": "Skjaldekroen", "coords": [623,305,21], "shape": "circle", "name": "Skjaldekroen", "id": "27"
+    },
+    {
+        "title": "Solæg-damen", "coords": [566,136,21], "shape": "circle", "name": "Solæg-damen", "id": "28"
+    },
+    {
+        "title": "Uglernes verden", "coords": [91, 424, 21], "shape": "circle", "name": "Uglernes verden", "id": "29"
+    }
+  ]

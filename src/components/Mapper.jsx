@@ -1,7 +1,8 @@
 import React from 'react';
 import ImageMapper from 'react-img-mapper';
+import areaData from '../areas.json';
 
-function Mapper({ setMarket }) {
+function Mapper({ setMarket, width }) {
   const handleMouseOver = (e) => {
     document.getElementById('img-mapper').className = 'darkened';
     document.getElementById('informationBox').style.display = 'block';
@@ -13,21 +14,22 @@ function Mapper({ setMarket }) {
     document.getElementById('informationBox').style.display = 'none';
   };
 
-  const handleMouseClick = () => {
+  const handleMouseClick = (e) => {
+    /*     console.log(e.title);
+    console.log(selected);
+    if (selected === e.title) {
+      console.log('deselected');
+    } else {
+      setSelected(e.title);
+    } */
     window.open('https://maps.app.goo.gl/baxvkVsdEA3XY4TB7', '_blank');
   };
 
-  const URL = 'https://fantasyfestival.dk/Files/Images/Fantasyfestival/Markedsplads/kort-markedsplads-23.jpg';
+  // const URL = 'https://fantasyfestival.dk/Files/Images/Fantasyfestival/Markedsplads/kort-markedsplads-23.jpg';
+  const URL = '/kort.png';
   const MAP = {
     name: 'my-map',
-    areas: [
-      {
-        title: 'Mjólnír-Natur', coords: [147, 217, 21], shape: 'circle',
-      },
-      {
-        title: 'Uglernes verden', coords: [91, 424, 21], shape: 'circle',
-      },
-    ],
+    areas: areaData,
   };
 
   return (
@@ -37,8 +39,10 @@ function Mapper({ setMarket }) {
       onMouseEnter={handleMouseOver}
       onMouseLeave={handleMouseOut}
       onClick={handleMouseClick}
+/*       stayHighlighted
+      toggleHighlighted */
       responsive
-      parentWidth={700}
+      parentWidth={width}
       fillColor="rgba(255, 0, 0, 0.5)"
     />
   );
