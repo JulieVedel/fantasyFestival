@@ -4,15 +4,9 @@ import areaData from '../areas.json';
 
 function Mapper({ setMarket, width }) {
   const handleMouseOver = (e) => {
-    document.getElementById('img-mapper').className = 'darkened';
-    document.getElementById('informationBox').style.display = 'block';
     setMarket(e.title);
   };
 
-  const handleMouseOut = () => {
-    document.getElementById('img-mapper').className = '';
-    document.getElementById('informationBox').style.display = 'none';
-  };
 
   const handleMouseClick = (e) => {
     /*     console.log(e.title);
@@ -22,7 +16,7 @@ function Mapper({ setMarket, width }) {
     } else {
       setSelected(e.title);
     } */
-    window.open('https://maps.app.goo.gl/baxvkVsdEA3XY4TB7', '_blank');
+    window.open(e.url, '_blank');
   };
 
   // const URL = 'https://fantasyfestival.dk/Files/Images/Fantasyfestival/Markedsplads/kort-markedsplads-23.jpg';
@@ -37,7 +31,6 @@ function Mapper({ setMarket, width }) {
       src={URL}
       map={MAP}
       onMouseEnter={handleMouseOver}
-      onMouseLeave={handleMouseOut}
       onClick={handleMouseClick}
 /*       stayHighlighted
       toggleHighlighted */

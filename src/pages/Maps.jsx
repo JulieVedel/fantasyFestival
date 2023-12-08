@@ -26,7 +26,7 @@ function Maps() {
     };
   }, []);
 
-  const handleMouseOver = (e) => {
+  const handleMouseOver = () => {
     document.getElementById('img-mapper').className = 'darkened';
     document.getElementById('informationBox').style.display = 'block';
   };
@@ -42,7 +42,9 @@ function Maps() {
         Kort over Markedspladsen
       </Typography>
       <Typography variant="body1" gutterBottom>
-        For at gøre det nemt at finde rundt, har vi lavet et kort over standenes placering på Markedspladsen, som bliver uddelt fra billetsalget til Fantasyfestivalen.
+        For at gøre det nemt at finde rundt,
+        har vi lavet et kort over standenes placering på Markedspladsen,
+        som bliver uddelt fra billetsalget til Fantasyfestivalen.
         <br />
         Se det her:
       </Typography>

@@ -1,89 +1,89 @@
 [
     {
-      "title": "The Bead Family", "coords": [599,585,21], "shape": "circle", "name": "The Bead Family", "id": "1"
+      "title": "The Bead Family", "coords": [599,585,21], "shape": "circle", "name": "The Bead Family", "id": "1", "url": "https://maps.app.goo.gl/SLrLTqqv2fV43ftD6"
     },
     {
-      "title": "Bobbelvognen", "coords": [560,422,21], "shape": "circle", "name": "Bobbelvognen", "id": "2"
+      "title": "Bobbelvognen", "coords": [560,422,21], "shape": "circle", "name": "Bobbelvognen", "id": "2", "url": "https://maps.app.goo.gl/mHJ9ZCG725St5CiT8"
     },
     {
-      "title": "Børne- og ungdomsteater", "coords": [189,265,21], "shape": "circle", "name": "Børne- og ungdomsteater", "id": "3"
+      "title": "Børne- og ungdomsteater", "coords": [189,265,21], "shape": "circle", "name": "Børne- og ungdomsteater", "id": "3", "url": "https://maps.app.goo.gl/vdziQ6JRuBnK7JBE7"
     },
     {
-        "title": "De grønne pigespejdere", "coords": [665,442,21], "shape": "circle", "name": "De grønne pigespejdere", "id": "4"
+        "title": "De grønne pigespejdere", "coords": [665,442,21], "shape": "circle", "name": "De grønne pigespejdere", "id": "4", "url": "https://maps.app.goo.gl/ryrR5WfAkGfCm6W4A"
     },
     {
-        "title": "Dragernes Event", "coords": [699,211,21], "shape": "circle", "name": "Dragernes Event1", "id": "5"
+        "title": "Dragernes Event", "coords": [699,211,21], "shape": "circle", "name": "Dragernes Event1", "id": "5", "url": "https://maps.app.goo.gl/guvyg6om7vFHiogh7"
     },
     {
-        "title": "Dragernes Event", "coords": [718,166,21], "shape": "circle", "name": "Dragernes Event2", "id": "6"
+        "title": "Dragernes Event", "coords": [718,166,21], "shape": "circle", "name": "Dragernes Event2", "id": "6", "url": "https://maps.app.goo.gl/67KfEm2tLhotHzXB9"
     },
     {
-        "title": "Dødens Dør", "coords": [567,187,21], "shape": "circle", "name": "Dødens Dør", "id": "7"
+        "title": "Dødens Dør", "coords": [567,187,21], "shape": "circle", "name": "Dødens Dør", "id": "7", "url": "https://maps.app.goo.gl/8fizF7yzQ3AnK6qC8"
     },
     {
-        "title": "Dragon Inn", "coords": [724,553,21], "shape": "circle", "name": "Dragon Inn", "id": "8"
+        "title": "Dragon Inn", "coords": [724,553,21], "shape": "circle", "name": "Dragon Inn", "id": "8", "url": "https://maps.app.goo.gl/SU7nNLfsp8KViK4q7"
     },
     {
-        "title": "EPOS Efterskole", "coords": [211,224,21], "shape": "circle", "name": "EPOS Efterskole", "id": "9"
+        "title": "EPOS Efterskole", "coords": [211,224,21], "shape": "circle", "name": "EPOS Efterskole", "id": "9", "url": "https://maps.app.goo.gl/EJ89Z8BwszeS4QGw8"
     },
     {
-        "title": "Eventyrernes Laug HQ", "coords": [132,390,21], "shape": "circle", "name": "Eventyrernes Laug HQ", "id": "10"
+        "title": "Eventyrernes Laug HQ", "coords": [132,390,21], "shape": "circle", "name": "Eventyrernes Laug HQ", "id": "10", "url": "https://maps.app.goo.gl/dcabgouAUp2SnBzj7"
     },
     {
-        "title": "Friggs Fruerstue", "coords": [689,586,21], "shape": "circle", "name": "Friggs Fruerstue", "id": "11"
+        "title": "Friggs Fruerstue", "coords": [689,586,21], "shape": "circle", "name": "Friggs Fruerstue", "id": "11", "url": "https://maps.app.goo.gl/3knmoamN5EaJUtPL6"
     },
     {
-        "title": "Gimlegaard", "coords": [610,232,21], "shape": "circle", "name": "Gimlegaard", "id": "12"
+        "title": "Gimlegaard", "coords": [610,232,21], "shape": "circle", "name": "Gimlegaard", "id": "12", "url": "https://maps.app.goo.gl/SqAdVB7pfAQL3JTLA"
     },
     {
-        "title": "Griseriet", "coords": [131,317,21], "shape": "circle", "name": "Griseriet", "id": "13"
+        "title": "Griseriet", "coords": [131,317,21], "shape": "circle", "name": "Griseriet", "id": "13", "url": "https://maps.app.goo.gl/YnsnxNiMzA3zRHRR6"
     },
     {
-        "title": "Ildsmeden", "coords": [622,540,21], "shape": "circle", "name": "Ildsmeden", "id": "14"
+        "title": "Ildsmeden", "coords": [622,540,21], "shape": "circle", "name": "Ildsmeden", "id": "14", "url": "https://maps.app.goo.gl/y53Ww3WjktdkpcQv8"
     },
     {
-        "title": "Kaffevognen", "coords": [521,482,21], "shape": "circle", "name": "Kaffevognen", "id": "15"
+        "title": "Kaffevognen", "coords": [521,482,21], "shape": "circle", "name": "Kaffevognen", "id": "15", "url": "https://maps.app.goo.gl/veAWo6cRqJWgk49eA"
     },
     {
-        "title": "Kamparena", "coords": [643,146,21], "shape": "circle", "name": "Kamparena", "id": "16"
+        "title": "Kamparena", "coords": [643,146,21], "shape": "circle", "name": "Kamparena", "id": "16", "url": "https://maps.app.goo.gl/4ZCeqTB3Gv57wrMg6"
     },
     {
-        "title": "Karamelmesteren", "coords": [578,306,21], "shape": "circle", "name": "Karamelmesteren", "id": "17"
+        "title": "Karamelmesteren", "coords": [578,306,21], "shape": "circle", "name": "Karamelmesteren", "id": "17", "url": "https://maps.app.goo.gl/U5VEdrxr8uSa8P8X6"
     },
     {
-        "title": "Korn 180", "coords": [132,272,21], "shape": "circle", "name": "Korn 180", "id": "18"
+        "title": "Korn 180", "coords": [132,272,21], "shape": "circle", "name": "Korn 180", "id": "18", "url": "https://maps.app.goo.gl/9sjAEey3vvLrQrJU6"
     },
     {
-        "title": "Martillo Workshop", "coords": [717,121,21], "shape": "circle", "name": "Martillo Workshop", "id": "19"
+        "title": "Martillo Workshop", "coords": [717,121,21], "shape": "circle", "name": "Martillo Workshop", "id": "19", "url": "https://maps.app.goo.gl/q3rDM1SMnSLAsHkB9"
     },
     {
-        "title": "Maximus", "coords": [700,253,21], "shape": "circle", "name": "Maximus", "id": "20"
+        "title": "Maximus", "coords": [700,253,21], "shape": "circle", "name": "Maximus", "id": "20", "url": "https://maps.app.goo.gl/Mt4p1YrBs4Ht3vhm9"
     },
     {
-        "title": "Mjødladen", "coords": [667,539,21], "shape": "circle", "name": "Mjødladen", "id": "21"
+        "title": "Mjødladen", "coords": [667,539,21], "shape": "circle", "name": "Mjødladen", "id": "21", "url": "https://maps.app.goo.gl/gBkTLZKc9RsUrbM1A"
     },
     {
-        "title": "Mjólnír-Natur", "coords": [147,216,21], "shape": "circle", "name": "Mjólnír-Natur", "id": "22"
+        "title": "Mjólnír-Natur", "coords": [147,216,21], "shape": "circle", "name": "Mjólnír-Natur", "id": "22", "url": "https://maps.app.goo.gl/N1iXnXmmFJi1EH6WA"
     },
     {
-        "title": "Morten Villebøl", "coords": [611,187,21], "shape": "circle", "name": "Morten Villebøl", "id": "23"
+        "title": "Morten Villebøl", "coords": [611,187,21], "shape": "circle", "name": "Morten Villebøl", "id": "23", "url": "https://maps.app.goo.gl/UNfoiQhGtrXc6toi8"
     },
     {
-        "title": "Myrthue", "coords": [645,586,21], "shape": "circle", "name": "Myrthue", "id": "24"
+        "title": "Myrthue", "coords": [645,586,21], "shape": "circle", "name": "Myrthue", "id": "24", "url": "https://maps.app.goo.gl/scYmgEaCyrnRQgiQ7"
     },
     {
-        "title": "Pandekager", "coords": [521,234,21], "shape": "circle", "name": "Pandekager", "id": "25"
+        "title": "Pandekager", "coords": [521,234,21], "shape": "circle", "name": "Pandekager", "id": "25", "url": "https://maps.app.goo.gl/AQmP6WaP1e552Nvu6"
     },
     {
-        "title": "Ravnens Datter", "coords": [656,232,21], "shape": "circle", "name": "Ravnens Datter", "id": "26"
+        "title": "Ravnens Datter", "coords": [656,232,21], "shape": "circle", "name": "Ravnens Datter", "id": "26", "url": "https://maps.app.goo.gl/Z25a8DJZxKDMCmqy9"
     },
     {
-        "title": "Skjaldekroen", "coords": [623,305,21], "shape": "circle", "name": "Skjaldekroen", "id": "27"
+        "title": "Skjaldekroen", "coords": [623,305,21], "shape": "circle", "name": "Skjaldekroen", "id": "27", "url": "https://maps.app.goo.gl/ETQrEYxXhJYPKk637"
     },
     {
-        "title": "Solæg-damen", "coords": [566,136,21], "shape": "circle", "name": "Solæg-damen", "id": "28"
+        "title": "Solæg-damen", "coords": [566,136,21], "shape": "circle", "name": "Solæg-damen", "id": "28", "url": "https://maps.app.goo.gl/91vgZUQg7yMg8JdBA"
     },
     {
-        "title": "Uglernes verden", "coords": [91, 424, 21], "shape": "circle", "name": "Uglernes verden", "id": "29"
+        "title": "Uglernes verden", "coords": [91, 424, 21], "shape": "circle", "name": "Uglernes verden", "id": "29", "url": "https://maps.app.goo.gl/nPBweVHegmzgtPST9"
     }
   ]
