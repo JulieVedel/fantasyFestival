@@ -2,6 +2,7 @@ import React, {
   useState, useRef, useLayoutEffect, useEffect,
 } from 'react';
 import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
 import Mapper from '../components/Mapper';
 
 function Maps() {
@@ -37,39 +38,44 @@ function Maps() {
   };
 
   return (
-    <div className="adminContent">
-      <Typography variant="h4" gutterBottom>
-        Kort over Markedspladsen
-      </Typography>
-      <Typography variant="body1" gutterBottom>
-        For at gøre det nemt at finde rundt,
-        har vi lavet et kort over standenes placering på Markedspladsen,
-        som bliver uddelt fra billetsalget til Fantasyfestivalen.
-        <br />
-        Se det her:
-      </Typography>
-      <div
-        ref={ref}
-        style={{
-          position: 'relative', margin: 'auto', width: '80%', paddingBottom: '20px',
-        }}
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
-      >
-        <Mapper setMarket={setMarket} width={width} />
-        <div id="informationBox">
-          <Typography variant="h6" gutterBottom color="white">
-            {market}
-          </Typography>
-          <Typography variant="body2" gutterBottom color="white">
-            Beskrivelse om denne bod, hvor den findes og hvad den sælger.
-          </Typography>
-          <Typography variant="body2" gutterBottom color="white" sx={{ textDecoration: 'underline' }}>
-            Klik på ikon for at finde vej.
-          </Typography>
+    <div className="item">
+      <div style={{ margin: 15, width: '100%' }}>
+        <Typography variant="h4" gutterBottom>
+          Kort over Markedspladsen
+        </Typography>
+        <Typography variant="h6" gutterBottom>
+          For at gøre det nemt at finde rundt,
+          har vi lavet et kort over standenes placering på Markedspladsen,
+          som bliver uddelt fra billetsalget til Fantasyfestivalen.
+          <br />
+          Se det her:
+        </Typography>
 
+        <Divider variant="middle" />
+        <div
+          ref={ref}
+          style={{
+            position: 'relative', margin: 'auto', width: '80%', paddingBottom: '20px', marginTop: 50
+          }}
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
+        >
+          <Mapper setMarket={setMarket} width={width} />
+          <div id="informationBox">
+            <Typography variant="h6" gutterBottom color="white">
+              {market}
+            </Typography>
+            <Typography variant="body2" gutterBottom color="white">
+              Beskrivelse om denne bod, hvor den findes og hvad den sælger.
+            </Typography>
+            <Typography variant="body2" gutterBottom color="white" sx={{ textDecoration: 'underline' }}>
+              Klik på ikon for at finde vej.
+            </Typography>
+
+          </div>
         </div>
       </div>
+
     </div>
   );
 }

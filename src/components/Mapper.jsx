@@ -7,7 +7,6 @@ function Mapper({ setMarket, width }) {
     setMarket(e.title);
   };
 
-
   const handleMouseClick = (e) => {
     /*     console.log(e.title);
     console.log(selected);

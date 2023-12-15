@@ -47,8 +47,8 @@ export default function Header() {
             routes={
             [
               { title: 'Om Fantasyfestivalen', link: '/om-fantasyfestivalen' },
-              { title: 'Hvordan begyndte fantasyfestival', link: '/om-fantasyfestivalen/hvordan-begyndte-fantasyfestival' },
-              { title: 'EAN- og CVR-numre', link: 'praktisk-info/ean-og-cvrnumre' },
+              { title: 'Hvordan begyndte fantasyfestival', link: '/hvordan-begyndte-fantasyfestival' },
+              { title: 'EAN- og CVR-numre', link: '/praktisk-info/ean-og-cvrnumre' },
               { title: 'FAQ', link: '/praktisk-info/FAQ' },
               { title: 'Praktikanter', link: '/praktisk-info/praktikanter' },
               { title: 'Sponsorer og samarbejdspartnere', link: '/praktisk-info/sponsorer-og-samarbejdspartnere' },
