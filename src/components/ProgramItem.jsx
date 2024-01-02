@@ -76,7 +76,7 @@ function ProgramItem({ item }) {
   };
 
   return (
-    <div key={item.program_id} className="item, adminItem">
+    <div key={item.program_id} className="item, adminItem" data-testid="program-item">
       {item.image_url !== null && (
       <div className="programImage">
         <img src={`${item.image_url}`} alt={item.title} />
@@ -103,12 +103,10 @@ function ProgramItem({ item }) {
             {item.title}
           </DialogTitle>
           <DialogContent>
-            <DialogContentText id="dialog-description">
-              <div>
-                <Typography variant="subtitle2" className="info">{`${item.program_location} - ${item.program_date} kl. ${item.time_start}-${item.time_end}`}</Typography>
-                <Typography variant="body2">{item.description}</Typography>
-              </div>
-            </DialogContentText>
+            <div>
+              <Typography variant="subtitle2" className="info"><strong>{`${item.program_location} - ${item.program_date} kl. ${item.time_start}-${item.time_end}`}</strong></Typography>
+              <Typography variant="body2">{item.description}</Typography>
+            </div>
           </DialogContent>
           <DialogActions>
             <Button onClick={addToList}>{myListText}</Button>

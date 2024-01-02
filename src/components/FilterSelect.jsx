@@ -15,6 +15,7 @@ function FilterSelect({
     <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
       <InputLabel id="demo-simple-select-standard-label">{label}</InputLabel>
       <Select
+        data-testid={label}
         MenuProps={{ disableScrollLock: true }}
         labelId="demo-simple-select-standard-label"
         value={value}
